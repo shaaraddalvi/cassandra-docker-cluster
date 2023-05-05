@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+    node0:
+        container_name: node0
+        image: cassandra-prom
+        build:
+            context: .
+            dockerfile: Dockerfile
+        networks:
+            - cassandra-net
+        volumes:
+            - cassandra-vol-0:/var/lib/cassandra
+    prom:
+        container_name: prom
+        image: prom/prometheus
+        networks:
+            - cassandra-net
+        ports:
+            - 9090:9090
+        volumes:
+            - type: bind
+              source: ./prometheus/prometheus.yaml
+              target: /etc/prometheus/prometheus.yml
+    grafana:
+        container_name: grafana
+        image: grafana/grafana
+        networks:
+            - cassandra-net
+        ports:
+            - 3000:3000
+networks:
+    cassandra-net:
+        name: cassandra-net
+        external: true
+volumes:
+    cassandra-vol-0:

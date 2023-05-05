@@ -1,0 +1,8 @@
+  global:
+    scrape_interval: 15s
+  scrape_configs:
+  # Cassandra config
+    - job_name: 'cassandra'
+      scrape_interval: 15s
+      static_configs:
+        - targets: ['node0:7070']
