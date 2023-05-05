@@ -5,4 +5,4 @@
     - job_name: 'cassandra'
       scrape_interval: 15s
       static_configs:
-        - targets: ['node0:7070']
+        - targets: ['node0:9500']
