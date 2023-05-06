@@ -77,7 +77,7 @@ services:
 networks:
     cassandra-net:
         name: cassandra-net
-        external: true
+        driver: bridge
 volumes:
     cassandra-vol-0:
     cassandra-vol-1:
