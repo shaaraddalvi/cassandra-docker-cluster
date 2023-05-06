@@ -338,3 +338,13 @@ Address          Rack        Status State   Load            Owns                
 ```
 
 The nodes `172.18.0.5` and `172.18.0.2` have their load (data storage) increased. `172.18.0.6` has the storage increased a bit as well, and it's not very apparent that the increase in load on `.5` and `.2` is due the inserted data, but if significant data is inserted, the load will be considerably more than `.6`.
+
+After multiple flushes, the `SSTable count` increases. To compact them, `nodetool compact` can be used. In our minimal data case, this simply compacts all the SSTables into a single SSTable.
+
+`docker exec node0 nodetool compact test_ks sensor_temperatures`
+
+This needs to be executed on individual containers as the flush and compaction process is specific to a given node.
+
+The drop in `cassandra_table_live_sstables` to 1 is shown below- 
+
+![image](./images/compaction.png)
