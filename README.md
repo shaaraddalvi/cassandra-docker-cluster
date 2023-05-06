@@ -35,3 +35,6 @@ UN  172.18.0.6  75.2 KiB    16      76.0%             23966d83-4c46-46f6-b4a1-38
 UN  172.18.0.2  109.39 KiB  16      64.7%             ee60e784-46b3-42ca-b890-757b0ea63ed3  rack1
 UN  172.18.0.5  70.24 KiB   16      59.3%             7db96b60-9733-46e6-8c9f-87d935163ec6  rack1
 ```
+
+### Notes
+The `notes` directory has some notes about the Cluster
